@@ -5,6 +5,9 @@ In this project, we implement many convolutional neural network-based models on 
 pyramid network residual attention networks, and fine-grained models (MMAL-networks). We using an ensemble technique to combine our models to obtain the robust model.
 We test our proposed methods on 2 published datasets including IP102: A Large-Scale Benchmark Dataset for Insect Pest Recognition and D0. The experimental results show that combining these convolutional neural network-based models can better perform than the state-of-the-art methods on these two datasets. For instance, the highest accuracy we obtained on IP102 and D0 is 74.13% and 99.78%, respectively_
 
+place dataset as per the following rule :
+root_project dir/code/IP102/
+
 Our paper can be found at https://arxiv.org/abs/2107.12189 and under the submission to the journal Applied Intelligence.
 
 ## Requirement
