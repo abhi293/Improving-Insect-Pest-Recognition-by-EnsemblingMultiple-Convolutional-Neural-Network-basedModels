@@ -1,0 +1,40 @@
+Start
+  |
+  v
+[Load Dataset]
+  |
+  v
+[Preprocess Data]
+  |
+  v
+[Initialize Model]
+  |
+  v
+[Forward Pass (Training Loop)]
+  |
+  v
+[Calculate Loss]
+  |
+  v
+[Backward Pass (Update Weights)]
+  |
+  v
+[Evaluate Model (Validation)]
+  |
+  v
+[Save Model]
+  |
+  v
+  End
+
+
+  flowchart TD
+    Start --> LoadDataset[Load Dataset]
+    LoadDataset --> Preprocess[Preprocess Data]
+    Preprocess --> InitializeModel[Initialize Model]
+    InitializeModel --> ForwardPass[Forward Pass (Training Loop)]
+    ForwardPass --> CalculateLoss[Calculate Loss]
+    CalculateLoss --> BackwardPass[Backward Pass (Update Weights)]
+    BackwardPass --> Evaluate[Evaluate Model (Validation)]
+    Evaluate --> SaveModel[Save Model]
+    SaveModel --> End
