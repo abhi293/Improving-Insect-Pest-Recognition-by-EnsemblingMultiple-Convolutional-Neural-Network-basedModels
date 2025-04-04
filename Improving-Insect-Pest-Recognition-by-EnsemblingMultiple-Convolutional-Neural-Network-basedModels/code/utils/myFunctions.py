@@ -207,7 +207,7 @@ def initialize_model(model_name, num_classes, use_pretrained=True, dropout= 0.5,
     return model_ft, input_size
 
 class resizePadding(object):
-    """Custom tranform: Resize, pad image to square shape while keep its aspect ratio"""
+    """Custom transform: Resize, pad image to square shape while keeping its aspect ratio"""
     def __init__(self, output_size):
         assert isinstance(output_size, (int, tuple))
         if isinstance(output_size, int):
@@ -218,15 +218,12 @@ class resizePadding(object):
 
     def __call__(self, im):
         old_size = im.size
-
-        ratio = float(self.desired_size[0])/max(old_size)
-        new_size = tuple([int(x*ratio) for x in old_size])
-
-        im = im.resize(new_size, Image.ANTIALIAS)
-
+        ratio = float(self.desired_size[0]) / max(old_size)
+        new_size = tuple([int(x * ratio) for x in old_size])
+        im = im.resize(new_size, Image.Resampling.LANCZOS)  # Use LANCZOS instead of ANTIALIAS
         new_im = Image.new("RGB", self.desired_size)
-        new_im.paste(im, ((self.desired_size[0] - new_size[0])//2,
-                            (self.desired_size[1] - new_size[1])//2))
+        new_im.paste(im, ((self.desired_size[0] - new_size[0]) // 2,
+                          (self.desired_size[1] - new_size[1]) // 2))
         return new_im
 
 def evaluate_model(model, testloader, path_weight_dict= None, device= 'cuda', model_hyper = {}):
