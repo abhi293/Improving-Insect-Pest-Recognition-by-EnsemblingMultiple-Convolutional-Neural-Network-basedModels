@@ -337,4 +337,4 @@ if __name__ == "__main__":
                         %(train_acc[i], train_loss[i], val_acc[i], val_loss[i]))
 
 #How to run the code?
-#python Trainmain.py -data IP102 -optim SGD -sch none -l2 0.01 -do 0.5 -predt True -mn resnet -lr 0.001 -bz 4 -ep 10 -dv cpu 
+#python Trainmain.py -data IP102 -optim SGD -sch none -l2 0.01 -do 0.5 -predt True -mn resnet -lr 0.001 -bz 4 -ep 10 -dv auto
