@@ -67,7 +67,6 @@ if __name__ == "__main__":
         return torch.device("cpu")
     
     device = get_device()
-    
     batch_size = int(args['batch_size'])
     num_epochs = int(args['epochs'])
 
@@ -190,7 +189,7 @@ if __name__ == "__main__":
       else:
           # Default batch size for unknown devices
           print("Unknown device type. Using default batch size.")
-          return 16
+          return 8
     
     # Adjust learning rate dynamically
     def get_learning_rate(device):
@@ -252,15 +251,15 @@ if __name__ == "__main__":
                 with autocast(device_type=device.type, enabled=device.type in ["cuda", "dml"]):
                     gpu_outputs = model(gpu_inputs)
                     gpu_loss = criterion(gpu_outputs, gpu_labels)
+                    optimizer.step()
                 scaler.scale(gpu_loss).backward()
                 scaler.step(optimizer)
                 scaler.update()
-        
+
                 # Optionally, print loss for each batch
                 print(f"Batch {i+1}/{len(gpu_loader)} - Loss: {gpu_loss.item():.4f}")
-                
-        
-        
+
+
         if optimizer.lower() == 'sgd':
             optimizer_ft = optim.SGD(params_to_update, lr= init_lr, momentum= 0.9, weight_decay= weight_decay)
         elif optimizer.lower() == 'adam':

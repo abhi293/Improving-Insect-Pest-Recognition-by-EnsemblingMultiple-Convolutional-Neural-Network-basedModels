@@ -23,7 +23,7 @@ Our paper can be found at https://arxiv.org/abs/2107.12189 and under the submiss
 
 ## Dataset
 In this work, we using two published datasets:
-- IP102 (proposed in https://openaccess.thecvf.com/content_CVPR_2019/papers/Wu_IP102_A_Large-Scale_Benchmark_Dataset_for_Insect_Pest_Recognition_CVPR_2019_paper.pdf). Contact the author to get this dataset.
+- IP102 Kaggle (https://www.kaggle.com/datasets/rtlmhjbn/ip02-dataset)
 - D0 (proposed in https://www.sciencedirect.com/science/article/abs/pii/S0168169916308833). Download link https://www.dlearningapp.com/web/DLFautoinsects.htm.
 ## Usage
 To preproduct the result:
@@ -31,7 +31,7 @@ To preproduct the result:
 - Main working directory must be "...\\Improving-Insect-Pest-Recognition-by-EnsemblingMultiple-Convolutional-Neural-Network-basedModels\\code".
 - Download dataset
 - Prepare the training data using command:
-<pre><code>py data_prepare.py -data IP102 -root ...\\ip102_v1.1-002</code></pre>
+<pre><code>py data_prepare.py -data IP102 -root ...\\ip102</code></pre>
 _Note: Downloaded IP102's root folder directory must contained the archived .tar flie and .txt files of listing samples for training, validating,and testing. Created root folder for training will be placed in the same directory with this code._
 <pre><code>py data_prepare.py -data D0 -root ...\\d0</code></pre>
 _Note: Downloaded D0's root folder must contained 40 archived .zip files. Created root folder for training will be placed in the same directory with this code._
